@@ -22,7 +22,7 @@ def register_user(user: dict[str, str]) -> bool:
 
         # release lock
         lock.release_lock()
-    except Exception as e:
+    except Exception:
         # handle exception
         # ...something went wrong, the user was not registered
         return False
