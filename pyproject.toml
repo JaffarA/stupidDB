@@ -1,10 +1,15 @@
 [tool.poetry]
 name = "stupiddb2"
-version = "1.0.1"
+version = "1.0.2"
 description = "an incredibly stupid, for fun, json \"db\""
 authors = ["Jaffar Almaleki <jaffar.almaleki@gmail.com>"]
-license = "GPLv3"
+homepage = "https://github.com/JaffarA/stupiddb"
+repository = "https://github.com/JaffarA/stupiddb"
 readme = "README.md"
+license = "GPLv3"
+include = [
+    "LICENSE",
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
