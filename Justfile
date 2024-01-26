@@ -8,7 +8,7 @@ ruff:
     poetry run ruff check .
 
 mypy:
-    poetry run mypy .
+    poetry run mypy . --check-untyped-defs
 
 format: black isort
 
