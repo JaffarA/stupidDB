@@ -1,2 +1,1 @@
-from stupiddb import StupidDB
-from stupidlock import StupidLock
+from stupiddb import StupidDB, StupidLock

@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from stupidlock import StupidLock
+from stupiddb import StupidLock
 
 lock_test_path = "test_lock.json"
 
