@@ -2,10 +2,16 @@
 
 ### StupidDB
 
-The dumbest PoC db I use for toy development. Not really actually a database, more of a python wrapper for a json file.
+### Why?
 
-Includes two amazingly stupid classes:
+I often found myself re-implementing the same dumb db/lock for micro projects, so I decided to make it into a library I can just include as a dependency.
+
+This is the dumbest PoC (not proof-of-concept) db I use for toy development. Not really actually a database, more of a python wrapper for a json file. Really great for things like doing a work secret santa api (all within a single file) 🎅 and... not much else.
+
+Includes two amazingly stupid classes and some not well thought out functions for them:
+
 - `stupiddb.StupidDB`
+
     - `insert`
     ```python
     stupiddb.StupidDB().insert(
@@ -32,7 +38,11 @@ Includes two amazingly stupid classes:
         0  # index of the record to remove
     )
     ```
+
+> Bonus 🃏: this is a really dumb lock that uses a json file to store the lock state. It's not a real lock, but it's good enough for my purposes.
+
 - `stupiddb.StupidLock`
+
     - `is_locked`
     ```python
     stupiddb.StupidLock().is_locked()  # False
