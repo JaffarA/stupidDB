@@ -10,65 +10,63 @@ This is the dumbest PoC (not proof-of-concept) db I use for toy development. Not
 
 Includes two amazingly stupid classes and some not well thought out functions for them:
 
-- `stupiddb.StupidDB`
+- `stupiddb2.StupidDB`
 
     - `insert`
     ```python
-    stupiddb.StupidDB().insert(
+    stupiddb2.StupidDB().insert(
         {"name": "alice", "age": "21"}
     )
     ```
     - `retrieve`
     ```python
-    result = stupiddb.StupidDB().retrieve(
+    result = stupiddb2.StupidDB().retrieve(
         0  # index of the record to retrieve
     )
     print(result)  # {"name": "alice", "age": "21"}
     ```
     - `update`
     ```python
-    stupiddb.StupidDB().update(
+    stupiddb2.StupidDB().update(
         0,  # index of the record to update
         {"name": "alice", "age": "22"}
     )
     ```
     - `remove`
     ```python
-    stupiddb.StupidDB().remove(
+    stupiddb2.StupidDB().remove(
         0  # index of the record to remove
     )
     ```
 
 > Bonus 🃏: this is a really dumb lock that uses a json file to store the lock state. It's not a real lock, but it's good enough for my purposes.
 
-- `stupiddb.StupidLock`
+- `stupiddb2.StupidLock`
 
     - `is_locked`
     ```python
-    stupiddb.StupidLock().is_locked()  # False
+    stupiddb2.StupidLock().is_locked()  # False
     ```
     - `acquire_lock`
     ```python
-    stupiddb.StupidLock().acquire_lock()
-    stupiddb.StupidLock().is_locked()  # True
+    stupiddb2.StupidLock().acquire_lock()
+    stupiddb2.StupidLock().is_locked()  # True
     ```
     - `release_lock`
     ```python
-    stupiddb.StupidLock().release_lock()
-    stupiddb.StupidLock().is_locked()  # False
+    stupiddb2.StupidLock().release_lock()
+    stupiddb2.StupidLock().is_locked()  # False
     ```
 
-### Command Reference
+### Installing
 ```bash
-just format  # runs black + isort
-just lint  # runs mypy + ruff
-just test  # runs tests
-just coverage  # prints coverage report (run after tests)
+pip install stupiddb2  # pip
+poetry add stupiddb2  # poetry
 ```
 
 ### Example Usage
 ```python
-from stupiddb import StupidDB, StupidLock
+from stupiddb2 import StupidDB, StupidLock
 
 db_path = "example_db.json"
 lock_path = "example_lock.json"
@@ -102,6 +100,16 @@ alice_is_registered = register_user(alice)
 print(alice_is_registered)  # True
 ```
 
+# Development
+
+### Command Reference
+```bash
+just format  # runs black + isort
+just lint  # runs mypy + ruff
+just test  # runs tests
+just coverage  # prints coverage report (run after tests)
+```
+
 
 ## Setup
 
@@ -128,6 +136,10 @@ just test  # runs tests
 ```
 
 ## FAQ
+
+> Q: Why is this called stupiddb2 and not stupiddb?
+
+`stupiddb` was taken on pypi 😭
 
 If any questions are ever asked, they will be answered here. 🙋
 

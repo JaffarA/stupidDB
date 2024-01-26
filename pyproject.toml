@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "stupiddb"
+name = "stupiddb2"
 version = "1.0.0"
 description = "an incredibly stupid, for fun, json \"db\""
 authors = ["Jaffar Almaleki <jaffar.almaleki@gmail.com>"]
