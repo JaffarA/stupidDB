@@ -1,10 +1,10 @@
 >This project is designed for recreational purposes, and I would advise against using it for critical database requirements unless it's intended for similar small-scale and experimental projects.
 
-### stupidDB
+### StupidDB
 
 The dumbest PoC db I use for toy development. Not really actually a database, more of a python wrapper for a json file.
 
-Includes two amazing classes:
+Includes two amazingly stupid classes:
 - `stupiddb.StupidDB`
     - `insert`
     ```python
