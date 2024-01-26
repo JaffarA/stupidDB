@@ -9,7 +9,45 @@ The dumbest PoC db I use for toy development. Not really actually a database, mo
 just format  # runs black + isort
 just lint  # runs mypy + ruff
 just test  # runs tests
+just coverage  # prints coverage report (run after tests)
 ```
+
+### Example Usage
+```python
+from stupiddb import StupidDB, StupidLock
+
+db_path = "example_db.json"
+lock_path = "example_lock.json"
+
+
+def register_user(user: dict[str, str]) -> bool:
+    # initialize db
+    stupid_db = StupidDB(db_path)
+
+    # initialize lock
+    lock = StupidLock(lock_path)
+
+    try:
+        # acquire lock
+        lock.acquire_lock()
+
+        # insert user into db
+        stupid_db.insert(user)
+
+        # release lock
+        lock.release_lock()
+    except Exception as e:
+        # handle exception
+        # ...something went wrong, the user was not registered
+        return False
+
+    return True
+
+alice = {"name": "alice", "age": "21"}
+alice_is_registered = register_user(alice)
+print(alice_is_registered)  # True
+```
+
 
 ## Setup
 
