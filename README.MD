@@ -4,6 +4,50 @@
 
 The dumbest PoC db I use for toy development. Not really actually a database, more of a python wrapper for a json file.
 
+Includes two amazing classes:
+- `stupiddb.StupidDB`
+    - `insert`
+    ```python
+    stupiddb.StupidDB().insert(
+        {"name": "alice", "age": "21"}
+    )
+    ```
+    - `retrieve`
+    ```python
+    result = stupiddb.StupidDB().retrieve(
+        0  # index of the record to retrieve
+    )
+    print(result)  # {"name": "alice", "age": "21"}
+    ```
+    - `update`
+    ```python
+    stupiddb.StupidDB().update(
+        0,  # index of the record to update
+        {"name": "alice", "age": "22"}
+    )
+    ```
+    - `remove`
+    ```python
+    stupiddb.StupidDB().remove(
+        0  # index of the record to remove
+    )
+    ```
+- `stupiddb.StupidLock`
+    - `is_locked`
+    ```python
+    stupiddb.StupidLock().is_locked()  # False
+    ```
+    - `acquire_lock`
+    ```python
+    stupiddb.StupidLock().acquire_lock()
+    stupiddb.StupidLock().is_locked()  # True
+    ```
+    - `release_lock`
+    ```python
+    stupiddb.StupidLock().release_lock()
+    stupiddb.StupidLock().is_locked()  # False
+    ```
+
 ### Command Reference
 ```bash
 just format  # runs black + isort
