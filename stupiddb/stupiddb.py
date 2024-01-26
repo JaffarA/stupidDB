@@ -43,11 +43,17 @@ class StupidDB:
         remove(self.path)
 
     def insert(self, data: Any) -> None:
+        """
+        Insert data into the database.
+        """
         self.refresh_db()
         self.local_db.append(data)
         self.write_to_db()
 
     def update(self, index: int, data: Any) -> None:
+        """
+        Update data at the given index.
+        """
         self.refresh_db()
         try:
             self.local_db[index] = data
@@ -56,8 +62,22 @@ class StupidDB:
         self.write_to_db()
 
     def retrieve(self, index: int) -> Any:
+        """
+        Retrieve data from the given index.
+        """
         self.refresh_db()
         try:
             return self.local_db[index]
+        except IndexError:
+            raise IndexError("Index out of range")
+
+    def remove(self, index: int) -> None:
+        """
+        Remove data at the given index.
+        """
+        self.refresh_db()
+        try:
+            self.local_db.pop(index)
+            self.write_to_db()
         except IndexError:
             raise IndexError("Index out of range")

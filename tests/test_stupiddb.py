@@ -2,6 +2,7 @@ import json
 import os
 
 from stupiddb import StupidDB
+import pytest
 
 db_test_path = "test_db.json"
 
@@ -88,3 +89,19 @@ class TestStupidDB:
         # Retrieve the updated entry and check if it matches the updated data
         retrieved_entry = db.retrieve(1)
         assert retrieved_entry == updated_entry
+
+    def test_remove(self):
+        # Initialize the database with sample data
+        db = StupidDB(db_test_path)
+        sample_data = [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
+
+        db.insert(sample_data[0])
+        db.insert(sample_data[1])
+
+        # Remove an existing data entry
+        db.remove(1)  # remove 'Bob' entry
+
+        # Check if the entry is removed
+        pytest.raises(IndexError, db.retrieve, 1)
+
+        assert db.retrieve(0) == sample_data[0]
