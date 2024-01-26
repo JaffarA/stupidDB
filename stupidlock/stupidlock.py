@@ -35,7 +35,7 @@ class StupidLock:
             if iteration > 100:
                 raise TimeoutError("Could not acquire lock")
             sleep(0.05)
-            return self.acquire_lock(iteration = iteration + 1)
+            return self.acquire_lock(iteration=iteration + 1)
         self._lock()
         return self.locked
 

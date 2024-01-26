@@ -61,7 +61,7 @@ class TestStupidLock:
 
         _lock = StupidLock(lock_test_path)
         assert _lock.is_locked() is True
-        
+
         pytest.raises(TimeoutError, _lock.acquire_lock)
 
         assert _lock.is_locked() is True

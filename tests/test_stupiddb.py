@@ -1,8 +1,6 @@
 import json
 import os
 
-import pytest
-
 from stupiddb import StupidDB
 
 db_test_path = "test_db.json"
