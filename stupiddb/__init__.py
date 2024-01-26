@@ -1,0 +1,1 @@
+from .stupiddb import StupidDB
